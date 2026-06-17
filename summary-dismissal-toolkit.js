@@ -1,41 +1,5 @@
 const tree = {
   start: {
-    tag: "Coverage",
-    question: "Is the employee likely to have access to unfair dismissal protections?",
-    context:
-      "Check minimum employment period, small business rules, award or enterprise agreement coverage, and whether earnings sit below the current high income threshold. If access is unlikely, still keep general protections, discrimination, contract and policy risks in view.",
-    options: [
-      {
-        label: "Yes or not sure",
-        next: "threshold",
-        note: "Unfair dismissal access is possible or needs checking."
-      },
-      {
-        label: "Likely no",
-        next: "externalRisk",
-        note: "Unfair dismissal access may be unavailable, but other claim risks remain."
-      }
-    ]
-  },
-  externalRisk: {
-    tag: "Other risks",
-    question: "Could the dismissal be connected to a protected reason or other legal risk?",
-    context:
-      "Screen for workplace complaints, leave, injury, discrimination, industrial activity, safety issues, contract terms, unpaid entitlements, whistleblowing and retaliation concerns before deciding how simple the process can be.",
-    options: [
-      {
-        label: "No obvious protected-risk flags",
-        next: "threshold",
-        note: "No obvious general protections or discrimination flags identified."
-      },
-      {
-        label: "Yes or not sure",
-        next: "pause",
-        note: "Escalate: possible general protections, discrimination or contract risk."
-      }
-    ]
-  },
-  threshold: {
     tag: "Threshold",
     question: "Is the alleged conduct deliberate, serious, or creating an immediate risk?",
     context:
@@ -180,7 +144,7 @@ const tree = {
   }
 };
 
-const orderedSteps = ["start", "externalRisk", "threshold", "evidence", "notify", "response", "mitigation", "decision"];
+const orderedSteps = ["start", "evidence", "notify", "response", "mitigation", "decision"];
 const state = {
   current: "start",
   history: [],
